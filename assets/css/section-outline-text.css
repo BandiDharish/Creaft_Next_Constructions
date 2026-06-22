@@ -1,0 +1,153 @@
+/* =========================================================
+   Craft Nest - Premium Outline Text System
+   Add this file after your main style.css.
+   ========================================================= */
+
+:root{
+    --cn-outline-gold: #ccac84;
+    --cn-outline-dark: #273238;
+}
+
+/* Main reusable outline text */
+.section-outline-text{
+    position:absolute;
+    left:50%;
+    top:38px;
+    transform:translateX(-50%);
+    z-index:0;
+
+    font-family:var(--title-font, "Outfit", sans-serif);
+    font-size:clamp(64px, 10vw, 205px);
+    font-weight:900;
+    line-height:.9;
+    letter-spacing:clamp(2px, .55vw, 9px);
+    text-transform:uppercase;
+    white-space:nowrap;
+
+    color:transparent;
+    -webkit-text-fill-color:transparent;
+    -webkit-text-stroke:1px rgba(204,172,132,.16);
+
+    opacity:1;
+    pointer-events:none;
+    user-select:none;
+}
+
+.section-outline-text.center{
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.section-outline-text.left{
+    left:0;
+    transform:none;
+}
+
+.section-outline-text.right{
+    left:auto;
+    right:0;
+    transform:none;
+}
+
+/* Make every main section support absolute outline text */
+.craft-hero,
+.about-area-10,
+.cn-services-lab,
+.cn-why-section,
+.cn-project-area,
+.cn-pricing-section,
+.team-area-9,
+.cn-gallery-section,
+#blog-sec,
+.footer-pro{
+    position:relative;
+    overflow:hidden;
+    isolation:isolate;
+}
+
+/* Keep actual section content above outline text */
+.craft-hero > *:not(.section-outline-text),
+.about-area-10 > *:not(.section-outline-text),
+.cn-services-lab > *:not(.section-outline-text),
+.cn-why-section > *:not(.section-outline-text),
+.cn-project-area > *:not(.section-outline-text),
+.cn-pricing-section > *:not(.section-outline-text),
+.team-area-9 > *:not(.section-outline-text),
+.cn-gallery-section > *:not(.section-outline-text),
+#blog-sec > *:not(.section-outline-text),
+.footer-pro > *:not(.section-outline-text){
+    position:relative;
+    z-index:2;
+}
+
+/* Dark section outline */
+.craft-hero .section-outline-text,
+.bg-black2 .section-outline-text,
+.cn-services-lab .section-outline-text,
+.cn-why-section .section-outline-text,
+.cn-project-area .section-outline-text,
+.footer-pro .section-outline-text{
+    -webkit-text-stroke-color:rgba(204,172,132,.15);
+}
+
+/* Light section outline */
+.about-area-10 .section-outline-text,
+.cn-pricing-section .section-outline-text,
+.team-area-9 .section-outline-text,
+.cn-gallery-section .section-outline-text,
+#blog-sec .section-outline-text{
+    -webkit-text-stroke-color:rgba(39,50,56,.10);
+}
+
+/* Hero outline should stay subtle behind slider */
+.craft-hero .hero-outline{
+    top:100px;
+    font-size:clamp(72px, 13vw, 250px);
+    -webkit-text-stroke-color:rgba(204,172,132,.13);
+    z-index:1;
+}
+
+/* Sections with title at top need more breathing room */
+.about-area-10 .section-outline-text,
+.cn-services-lab .section-outline-text,
+.cn-why-section .section-outline-text,
+.cn-project-area .section-outline-text,
+.cn-pricing-section .section-outline-text,
+.team-area-9 .section-outline-text,
+.cn-gallery-section .section-outline-text,
+#blog-sec .section-outline-text{
+    top:34px;
+}
+
+/* Optional premium glow without filling the text */
+.section-outline-text::after{
+    content:attr(data-shadow);
+}
+
+@media (max-width:1199px){
+    .section-outline-text{
+        font-size:clamp(54px, 11vw, 135px);
+        letter-spacing:4px;
+        top:28px;
+    }
+}
+
+@media (max-width:767px){
+    .section-outline-text{
+        font-size:clamp(40px, 13vw, 78px);
+        letter-spacing:2px;
+        top:20px;
+        -webkit-text-stroke-width:.8px;
+    }
+
+    .craft-hero .hero-outline{
+        top:80px;
+    }
+}
+
+@media (max-width:420px){
+    .section-outline-text{
+        font-size:38px;
+        letter-spacing:1px;
+    }
+}
